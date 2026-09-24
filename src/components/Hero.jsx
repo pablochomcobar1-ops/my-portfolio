@@ -31,13 +31,16 @@ export default function Hero() {
         animate="show"
         className="relative z-10"
       >
-        <motion.p variants={item} className="text-mint text-lg mb-4">
+        <motion.p
+          variants={item}
+          className="font-display italic text-mint text-2xl mb-2"
+        >
           Hi, I'm
         </motion.p>
 
         <motion.h1
           variants={item}
-          className="font-display font-extrabold text-5xl sm:text-6xl md:text-5xl lg:text-7xl leading-[0.9] tracking-tight"
+          className="text-gold font-display text-6xl sm:text-7xl md:text-6xl lg:text-8xl leading-[0.95] pb-3"
         >
           {personal.name}
         </motion.h1>

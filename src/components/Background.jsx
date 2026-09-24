@@ -9,14 +9,10 @@ import {
 
 export default function Background() {
   const reduce = useReducedMotion();
-
-  // scrollY = pixels scrolled, scrollYProgress = 0 at top, 1 at bottom
   const { scrollY, scrollYProgress } = useScroll();
-
-  // Smooth version, so the lights glide instead of jumping
   const progress = useSpring(scrollYProgress, { stiffness: 50, damping: 20 });
 
-  // Light 1: starts top-left, moves right then down, amber → mint → amber
+  // Light 1: gold → wine → gold
   const light1X = useTransform(progress, [0, 0.5, 1], ["-10vw", "40vw", "0vw"]);
   const light1Y = useTransform(
     progress,
@@ -26,10 +22,10 @@ export default function Background() {
   const light1Color = useTransform(
     progress,
     [0, 0.5, 1],
-    ["#ffb547", "#5eead4", "#ffb547"],
+    ["#c9a24b", "#6e1f2b", "#c9a24b"],
   );
 
-  // Light 2: starts bottom-right, moves the opposite way, mint → amber → mint
+  // Light 2: wine → gold → wine
   const light2X = useTransform(progress, [0, 0.5, 1], ["60vw", "0vw", "50vw"]);
   const light2Y = useTransform(
     progress,
@@ -39,10 +35,9 @@ export default function Background() {
   const light2Color = useTransform(
     progress,
     [0, 0.5, 1],
-    ["#5eead4", "#ffb547", "#5eead4"],
+    ["#6e1f2b", "#c9a24b", "#6e1f2b"],
   );
 
-  // Grid moves at 15% of scroll speed = parallax
   const gridY = useTransform(scrollY, (value) => -value * 0.15);
   const gridPosition = useMotionTemplate`0px ${gridY}px`;
 
@@ -54,17 +49,16 @@ export default function Background() {
         style={{ scaleX: scrollYProgress }}
       />
 
-      {/* Background layers */}
       <div
         aria-hidden
         className="fixed inset-0 -z-10 overflow-hidden pointer-events-none"
       >
-        {/* Dotted grid */}
+        {/* Faint gold dotted grid */}
         <motion.div
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(rgba(233, 231, 242, 0.07) 1px, transparent 1px)",
+              "radial-gradient(rgba(226, 204, 152, 0.05) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
             backgroundPosition: reduce ? "0px 0px" : gridPosition,
           }}
@@ -82,11 +76,20 @@ export default function Background() {
 
         {/* Glowing light 2 */}
         <motion.div
-          className="absolute w-[70vw] h-[70vw] md:w-[45vw] md:h-[45vw] rounded-full opacity-20 blur-[80px] md:blur-[120px]"
+          className="absolute w-[70vw] h-[70vw] md:w-[45vw] md:h-[45vw] rounded-full opacity-25 blur-[80px] md:blur-[120px]"
           style={{
             x: reduce ? "40vw" : light2X,
             y: reduce ? "50vh" : light2Y,
             backgroundColor: light2Color,
+          }}
+        />
+
+        {/* Spotlight: darker edges, like studio lighting */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%)",
           }}
         />
       </div>
