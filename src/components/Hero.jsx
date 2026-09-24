@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen mx-auto max-w-6xl px-6 pt-28 grid md:grid-cols-2 items-center gap-8"
+      className="min-h-svh md:min-h-screen mx-auto max-w-6xl px-6 pt-24 md:pt-28 grid md:grid-cols-2 items-center gap-2 md:gap-8"
     >
       <motion.div variants={container} initial="hidden" animate="show">
         <motion.p variants={item} className="text-mint text-lg mb-4">
@@ -31,12 +31,15 @@ export default function Hero() {
 
         <motion.h1
           variants={item}
-          className="font-display font-extrabold text-6xl md:text-8xl leading-[0.9] tracking-tight"
+          className="font-display font-extrabold text-5xl sm:text-6xl md:text-8xl leading-[0.9] tracking-tight"
         >
           {personal.name}
         </motion.h1>
 
-        <motion.p variants={item} className="mt-6 text-2xl text-paper/90">
+        <motion.p
+          variants={item}
+          className="mt-5 md:mt-6 text-xl md:text-2xl text-paper/90"
+        >
           {personal.role}
         </motion.p>
 
@@ -44,23 +47,26 @@ export default function Hero() {
           {personal.tagline}
         </motion.p>
 
-        <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
-          <a
+        <motion.div
+          variants={item}
+          className="mt-8 md:mt-10 flex flex-wrap gap-3 md:gap-4"
+        >
+          <motion.a
             href="#projects"
             className="rounded-full bg-glow px-7 py-3 font-bold text-ink hover:bg-paper transition-colors"
           >
             See my work
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="#contact"
             className="rounded-full border border-white/20 px-7 py-3 font-bold hover:border-glow transition-colors"
           >
             Get in touch
-          </a>
+          </motion.a>
         </motion.div>
       </motion.div>
 
-      <div className="h-[45vh] md:h-[75vh]">
+      <div className="h-[38vh] md:h-[75vh]">
         <Suspense fallback={null}>
           <Scene />
         </Suspense>

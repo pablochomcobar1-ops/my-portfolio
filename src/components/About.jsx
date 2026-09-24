@@ -24,12 +24,12 @@ export default function About() {
   const words = personal.about.split(" ");
 
   return (
-    <section id="about" className="mx-auto max-w-6xl px-6 py-32 md:py-48">
+    <section id="about" className="mx-auto max-w-6xl px-6 py-20 md:py-48">
       <h2 className="text-mint text-lg mb-10">About me</h2>
 
       <p
         ref={ref}
-        className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-4xl"
+        className="font-display font-bold text-2xl sm:text-3xl md:text-5xl leading-tight max-w-4xl"
       >
         {words.map((word, i) => {
           const start = i / words.length;

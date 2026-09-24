@@ -6,15 +6,15 @@ const allSkills = skills.flatMap((group) => group.items);
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-32 md:py-48 overflow-hidden">
+    <section id="skills" className="py-20 md:py-48 overflow-hidden">
       {/* Moving ribbon */}
-      <div className="w-[110%] -ml-[5%] -rotate-2 bg-glow text-ink py-4 mb-24 md:mb-32">
+      <div className="w-[110%] -ml-[5%] -rotate-2 bg-glow text-ink py-4 mb-16 md:mb-32">
         <div className="flex w-max animate-marquee motion-reduce:animate-none">
           {[...allSkills, ...allSkills].map((skill, i) => (
             <span
               key={i}
               aria-hidden={i >= allSkills.length}
-              className="font-display font-extrabold text-3xl md:text-5xl px-6 whitespace-nowrap"
+              className="font-display font-extrabold text-2xl md:text-5xl px-6 whitespace-nowrap"
             >
               {skill}
               <span className="text-ink/40 pl-12">✦</span>
@@ -31,7 +31,7 @@ export default function Skills() {
           {skills.map((group) => (
             <div
               key={group.group}
-              className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 py-8 border-b border-white/10"
+              className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 py-6 md:py-8 border-b border-white/10"
             >
               <h3 className="font-display text-2xl font-bold">{group.group}</h3>
 

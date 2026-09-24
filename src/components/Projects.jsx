@@ -64,10 +64,10 @@ function TiltCard({ children }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-6 py-32 md:py-48">
+    <section id="projects" className="mx-auto max-w-6xl px-6 py-20 md:py-48">
       <h2 className="text-mint text-lg mb-16">Projects</h2>
 
-      <div className="flex flex-col gap-32">
+      <div className="flex flex-col gap-20 md:gap-32">
         {projects.map((project, i) => (
           <motion.article
             key={project.title}
@@ -96,7 +96,7 @@ export default function Projects() {
 
             {/* Text side */}
             <div>
-              <h3 className="font-display text-4xl md:text-5xl font-extrabold">
+              <h3 className="font-display text-3xl md:text-5xl font-extrabold">
                 {project.title}
               </h3>
 

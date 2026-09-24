@@ -26,11 +26,11 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="mx-auto max-w-6xl px-6 pt-32 md:pt-48 pb-16"
+      className="mx-auto max-w-6xl px-6 pt-20 md:pt-48 pb-16"
     >
       <h2 className="text-mint text-lg mb-10">Contact</h2>
 
-      <p className="font-display font-extrabold text-5xl md:text-8xl leading-[0.95] tracking-tight max-w-4xl">
+      <p className="font-display font-extrabold text-4xl md:text-8xl leading-[0.95] tracking-tight max-w-4xl">
         Have an idea? Let's build it together.
       </p>
 
@@ -38,7 +38,7 @@ export default function Contact() {
         <Magnetic>
           <motion.a
             href={`mailto:${personal.email}`}
-            className="inline-block rounded-full bg-glow px-8 py-4 text-lg font-bold text-ink break-all hover:bg-paper transition-colors"
+            className="inline-block rounded-full bg-glow px-8 py-4 text-base md:text-lg font-bold text-ink break-all hover:bg-paper transition-colors"
           >
             {personal.email}
           </motion.a>
@@ -79,7 +79,7 @@ export default function Contact() {
         ))}
       </ul>
 
-      <footer className="mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-sm text-paper/40">
+      <footer className="mt-20 md:mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-sm text-paper/40">
         <p>
           © {new Date().getFullYear()} {personal.name}
         </p>

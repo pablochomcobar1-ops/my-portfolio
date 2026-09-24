@@ -21,13 +21,14 @@
     }
   }
 }
-
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   @apply bg-ink text-paper font-body antialiased;
+  overflow-x: clip;
 }
 
 @media (pointer: fine) {
