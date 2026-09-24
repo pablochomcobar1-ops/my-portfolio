@@ -1,8 +1,7 @@
-import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { personal } from "../data/portfolio";
+import PortraitReveal from "./PortraitReveal";
 
-const Scene = lazy(() => import("./ScenePortrait"));
 const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
 const container = {
@@ -76,12 +75,10 @@ export default function Hero() {
       </motion.div>
 
       <div className="relative h-[50vh] md:h-[75vh]">
-        <Suspense fallback={null}>
-          <Scene />
-        </Suspense>
+        <PortraitReveal />
 
-        <p className="absolute bottom-0 inset-x-0 text-center text-sm text-paper/40">
-          {isTouch ? "Tap me to shatter" : "Hover to scatter, click to shatter"}
+        <p className="absolute bottom-0 inset-x-0 text-center font-display italic text-lg text-mint/60">
+          {isTouch ? "Tap to reveal" : "Hover to reveal"}
         </p>
       </div>
     </section>

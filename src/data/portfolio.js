@@ -9,6 +9,7 @@ export const personal = {
   github: "https://github.com/pablochomcobar1-ops",
   linkedin: "[]",
   photo: "/me.png",
+  photoMasked: "/me-masked.png",
 };
 
 export const skills = [
