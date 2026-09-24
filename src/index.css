@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b1026;
+  --color-ink-light: #161d3f;
+  --color-paper: #e9e7f2;
+  --color-glow: #ffb547;
+  --color-mint: #5eead4;
+
+  --font-display: "Syne", sans-serif;
+  --font-body: "Manrope", sans-serif;
+
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-paper font-body antialiased;
+}
+
+@media (pointer: fine) {
+  * {
+    cursor: none;
+  }
+}
