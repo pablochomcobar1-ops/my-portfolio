@@ -11,7 +11,6 @@ import { personal } from "../data/portfolio";
 
 const REVEAL_SIZE = 110; // radius of the reveal circle, in pixels
 const RING_SCALE = 0.82; // where the gold ring sits, relative to the circle
-const ZOOM = 1.08; // lens magnification inside the circle
 
 const edgeFade =
   "radial-gradient(ellipse 70% 75% at 50% 45%, black 60%, transparent 100%)";
@@ -39,10 +38,6 @@ export default function PortraitReveal() {
   const ringTop = useMotionTemplate`${smoothY}%`;
   const ringSize = useTransform(radius, (r) => r * 2 * RING_SCALE);
   const ringOpacity = useTransform(radius, [0, REVEAL_SIZE], [0, 1]);
-
-  // Lens zoom: the real photo grows slightly, centered on the cursor
-  const zoom = useTransform(radius, [0, REVEAL_SIZE], [1, ZOOM]);
-  const zoomOrigin = useMotionTemplate`${smoothX}% ${smoothY}%`;
 
   // Gold dust particles
   const [dust, setDust] = useState([]);
@@ -119,7 +114,6 @@ export default function PortraitReveal() {
         alt={`Portrait of ${personal.name}`}
         draggable={false}
         className="absolute inset-0 h-full w-full object-contain"
-        style={{ scale: reduce ? 1 : zoom, transformOrigin: zoomOrigin }}
       />
 
       {/* Top layer: the masked figure, with a hole where the cursor is */}
