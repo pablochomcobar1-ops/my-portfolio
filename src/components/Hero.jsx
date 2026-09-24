@@ -2,7 +2,8 @@ import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { personal } from "../data/portfolio";
 
-const Scene = lazy(() => import("./Scene"));
+const Scene = lazy(() => import("./ScenePortrait"));
+const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
 const container = {
   hidden: {},
@@ -22,16 +23,21 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-svh md:min-h-screen mx-auto max-w-6xl px-6 pt-24 md:pt-28 grid md:grid-cols-2 items-center gap-2 md:gap-8"
+      className="min-h-svh md:min-h-screen mx-auto max-w-6xl px-6 pt-24 md:pt-28 grid md:grid-cols-[1.3fr_1fr] items-center gap-2 md:gap-8"
     >
-      <motion.div variants={container} initial="hidden" animate="show">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="relative z-10"
+      >
         <motion.p variants={item} className="text-mint text-lg mb-4">
           Hi, I'm
         </motion.p>
 
         <motion.h1
           variants={item}
-          className="font-display font-extrabold text-5xl sm:text-6xl md:text-8xl leading-[0.9] tracking-tight"
+          className="font-display font-extrabold text-5xl sm:text-6xl md:text-5xl lg:text-7xl leading-[0.9] tracking-tight"
         >
           {personal.name}
         </motion.h1>
@@ -66,10 +72,14 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <div className="h-[38vh] md:h-[75vh]">
+      <div className="relative h-[50vh] md:h-[75vh]">
         <Suspense fallback={null}>
           <Scene />
         </Suspense>
+
+        <p className="absolute bottom-0 inset-x-0 text-center text-sm text-paper/40">
+          {isTouch ? "Tap me to shatter" : "Hover to scatter, click to shatter"}
+        </p>
       </div>
     </section>
   );

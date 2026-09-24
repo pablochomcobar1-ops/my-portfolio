@@ -8,6 +8,7 @@ export const personal = {
   email: "pablochomcobar1@gmail.com",
   github: "https://github.com/pablochomcobar1-ops",
   linkedin: "[]",
+  photo: "/me.png",
 };
 
 export const skills = [
