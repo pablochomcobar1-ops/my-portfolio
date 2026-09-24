@@ -1,8 +1,7 @@
 export const personal = {
   name: "Jainam Gondaliya",
   role: "Full-Stack Developer",
-  tagline:
-    "[One line about what you build, e.g. I build web apps that people actually use]",
+  tagline: "",
   about:
     "I'm a full-stack developer who loves turning ideas into real products. I recently built Bajrang GYM, a complete gym management system with AI features, from the database to the design. I enjoy learning by building, one piece at a time.",
   email: "pablochomcobar1@gmail.com",
