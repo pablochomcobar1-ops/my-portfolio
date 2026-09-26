@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import { personal } from "../data/portfolio";
 import PortraitReveal from "./PortraitReveal";
 
-const isTouch = window.matchMedia("(pointer: coarse)").matches;
-
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
@@ -76,10 +74,6 @@ export default function Hero() {
 
       <div className="relative h-[50vh] md:h-[75vh]">
         <PortraitReveal />
-
-        <p className="absolute bottom-0 inset-x-0 text-center font-display italic text-lg text-mint/60">
-          {isTouch ? "Tap to reveal" : "Hover to reveal"}
-        </p>
       </div>
     </section>
   );
