@@ -10,6 +10,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { personal } from "../data/portfolio";
+import { useSound } from "./SoundProvider";
 
 const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
@@ -29,6 +30,7 @@ export default function PortraitReveal() {
   const stage = useRef(null);
   const reduce = useReducedMotion();
   const hovering = useRef(false);
+  const { play } = useSound();
 
   // While true, hover is ignored (during the animation, and while fully unmasked)
   const locked = useRef(false);
@@ -134,6 +136,7 @@ export default function PortraitReveal() {
     moveTo(e);
     smoothX.jump(x.get());
     smoothY.jump(y.get());
+    play("hover");
     animate(radius, REVEAL_SIZE, hoverSpring);
   };
 
@@ -159,6 +162,7 @@ export default function PortraitReveal() {
     locked.current = true;
     setBusy(true);
     setUnmasked(true);
+    play("reveal");
     x.set(CENTER_X);
     y.set(CENTER_Y);
 
@@ -178,6 +182,7 @@ export default function PortraitReveal() {
 
   const cover = async () => {
     setBusy(true);
+    play("cover");
     x.set(CENTER_X);
     y.set(CENTER_Y);
 

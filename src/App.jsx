@@ -6,10 +6,11 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Background from "./components/Background";
+import { SoundProvider } from "./components/SoundProvider";
 
 function App() {
   return (
-    <>
+    <SoundProvider>
       <Background />
       <Cursor />
       <Navbar />
@@ -20,8 +21,7 @@ function App() {
         <Projects />
         <Contact />
       </main>
-    </>
+    </SoundProvider>
   );
 }
-
 export default App;
