@@ -32,4 +32,13 @@ export const projects = [
     live: "https://bajrang-gym-maangement.vercel.app",
   },
   // Add more projects here with the same shape
+  {
+    title: "Forge Fitness",
+    description:
+      "This Website gives you all the things u need for monitoring your GYM journy.",
+    tech: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+    image: "/projects/forge-fitness.png",
+    github: "https://github.com/pablochomcobar1-ops/forge-fitness",
+    live: "https://forge-fitness-gules-three.vercel.app",
+  },
 ];
