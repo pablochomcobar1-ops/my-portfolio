@@ -41,4 +41,13 @@ export const projects = [
     github: "https://github.com/pablochomcobar1-ops/forge-fitness",
     live: "https://forge-fitness-gules-three.vercel.app",
   },
+
+  {
+    title: "Builder-Site",
+    description: "This Website is an example Website for a Builder.",
+    tech: ["React", "Tailwind CSS"],
+    image: "/projects/builder-site.png",
+    github: "https://github.com/pablochomcobar1-ops/builder-site",
+    live: "https://vercel.com/pablochomcobar1-7173s-projects/builder-site",
+  },
 ];
